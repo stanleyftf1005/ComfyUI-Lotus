@@ -37,7 +37,7 @@ class LoadLotusModel:
         dtype = {"bf16": torch.bfloat16, "fp16": torch.float16, "fp32": torch.float32}[precision]
         mm.soft_empty_cache()
 
-        lotus_model_path = folder_paths.get_full_path_or_raise("diffusion_models", model)
+        lotus_model_path = folder_paths.get_full_path("diffusion_models", model)
         
         lotus_sd = load_torch_file(lotus_model_path)
         in_channels = lotus_sd['conv_in.weight'].shape[1]
